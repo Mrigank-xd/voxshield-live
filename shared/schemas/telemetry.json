@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "VoxShieldRealtimeTelemetry",
+  "type": "object",
+  "properties": {
+    "call_id": { "type": "string" },
+    "timestamp": { "type": "number" },
+    "risk_score": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "risk_level": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+    "voice_clone_probability": { "type": "number" },
+    "speaker_match_score": { "type": "number" },
+    "face_authenticity_score": { "type": "number" },
+    "lip_sync_score": { "type": "number" },
+    "replay_probability": { "type": "number" },
+    "scam_intent_score": { "type": "number" },
+    "explanations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": ["call_id", "timestamp", "risk_score", "risk_level"]
+}

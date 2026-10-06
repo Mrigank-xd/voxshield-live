@@ -1,0 +1,13 @@
+{
+  "events": [
+    { "name": "VOICE_ANOMALY", "description": "Synthetic prosody, micro-jitter aberration or vocoder noise floor" },
+    { "name": "SPEAKER_MISMATCH", "description": "Deviation from enrolled trusted speaker embedding" },
+    { "name": "OTP_REQUEST", "description": "Caller soliciting one-time authentication code or PIN" },
+    { "name": "URGENCY_COERCION", "description": "Coercive psychological pressure with artificial time limit" },
+    { "name": "FINANCIAL_REQUEST", "description": "Demanding monetary wire transfer or unauthorized account redirection" },
+    { "name": "REMOTE_ACCESS", "description": "Requesting installation of remote control tool (AnyDesk, TeamViewer)" },
+    { "name": "LIP_SYNC_MISMATCH", "description": "Acoustic speech energy desynchronized from visual mouth aperture" },
+    { "name": "REPLAY_DETECTED", "description": "Acoustic comb filtering and room reverberation signature" },
+    { "name": "CHALLENGE_FAILED", "description": "Caller failed dynamic unpredictable vocal challenge" }
+  ]
+}

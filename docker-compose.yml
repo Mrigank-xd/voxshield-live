@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: voxshield-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./voxshield.db
+      - SECRET_KEY=voxshield-hackathon-secure-secret-key-2026
+      - PRIVACY_MODE_DEFAULT=false
+      - RISK_THRESHOLD_LOW=29
+      - RISK_THRESHOLD_MEDIUM=30
+      - RISK_THRESHOLD_HIGH=60
+      - RISK_THRESHOLD_CRITICAL=80
+    volumes:
+      - ./backend/reports_storage:/app/reports_storage
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: voxshield-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
